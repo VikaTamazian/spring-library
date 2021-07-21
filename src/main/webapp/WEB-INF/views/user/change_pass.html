@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Change Password</title>
+</head>
+<body>
+<th:href value="/user/save" var="saveURL"/>
+<form method="post" modelAttribute="user" action="${saveURL}">
+    <th:hidden path="username"/>
+    <table border="1">
+        <tr>
+            <td colspan="2">${msg }</td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>${user.username }</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                <th:password path="password"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Change Password</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

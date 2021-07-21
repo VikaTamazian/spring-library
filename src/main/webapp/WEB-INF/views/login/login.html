@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Login</title>
+</head>
+<body>
+<form name="loginForm" th:action='<c:url value="j_spring_security_check" />' th:method="post">
+    <table>
+        <label for="login">Enter login: </label>
+        <input type="text" th:field="*{login}" id="login"/>
+        <div style="color:red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login Error</div>
+        <tr>
+            <td>Username:</td>
+            <td>
+                <input type="text" name="username"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                <input type="password" name="password"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Remember Me:</td>
+            <td>
+                <input type="checkbox" name="remember-me"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Login</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <a href='<c:url value="/user/signup" />'>Sign up</a>
+            </td>
+        </tr>
+    </table>
+</form>
+<form th:name="loginForm" action="@{/j_spring_security_check}" th:method="POST">
+    <label for="login">Enter login: </label>
+    <input type="text" th:field="*{login}" id="login"/>
+    <div style="color:red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login Error</div>
+    <br/>
+    <label for="username">Enter username: </label>
+    <input type="text" th:field="*{username}" id="username"/>
+    <div style="color:red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login Error</div>
+    <br/>
+    <label for="email">Enter email: </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+</body>
+</html>

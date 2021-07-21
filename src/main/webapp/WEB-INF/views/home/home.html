@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Home</title>
+</head>
+<body>
+<a href='<c:url value="/logout" />'>Logout</a>
+<h1>Welcome
+    <th:if test="${pageContext.request.userPrincipal.name != null }">
+        ${pageContext.request.userPrincipal.name }
+    </th:if>
+</h1>
+<br/>
+<a href='<c:url value="/user/list" />'>Users List</a>
+</body>
+</html>

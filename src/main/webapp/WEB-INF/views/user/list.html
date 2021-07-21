@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Users List</title>
+</head>
+<body>
+<a href="/logout"/>Logout</a>
+<br/>
+<table border="1">
+    <tr>
+        <td>Username</td>
+        <td>Action</td>
+    </tr>
+    <th:each items="${list }" var="user">
+        <tr>
+            <td>${user.username }</td>
+            <td>
+                <th:href value="/user/changePass" var="changePassURL"/>
+                <a href="${changePassURL }/${user.username }">Change Pass</a>
+            </td>
+        </tr>
+    </th:each>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Signup</title>
+</head>
+<body>
+<th:href value="/user/register" var="registerURL"/>
+<form :action="${registerURL}" modelAttribute="userForm" method="post">
+    <label>Username: </label>
+    <input path="username" type="text"/>
+    <th:errors path="username"/>
+    <br/>
+    <label>Password: </label>
+    <th:password path="password"/>
+    <th:errors path="password"/>
+    <br/>
+    <label>Confirm Password: </label>
+    <th:password path="confirmPassword"/>
+    <th:errors path="confirmPassword"/>
+    <br/>
+    <button type="submit">Sign up</button>
+
+</form>
+
+</body>
+</html>
